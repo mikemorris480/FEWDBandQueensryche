@@ -6,39 +6,121 @@ body {
   color: #333;
 }
 
-.header {
+header {
   color: white;
   padding: 20px;
   text-align: center;
   background-image: url("./images/header-image.jpg");
   background-size: cover;
   background-position: center;
-}
-.content {
-  padding: 2px;
+  font-size: 25px;
 }
 
-.grid {
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
+  gap: 0px;
+  padding: 0px;
+  background-color: #f9f9f9;
+  border: 0px solid #ccc;
+}
+
+/* Grid Items */
+.about-content {
+  grid-column: 1 / -1;
+  /* Span all three columns */
+  grid-row: 1;
+  /* Span the first three rows */
+  background-color: lightsteelblue;
+  color: black;
+  text-align: center;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.main-content {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  color: black;
+  text-align: start;
+
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: max-content;
+  /* Ensures all images fit side by side */
+  animation: scroll 30s linear infinite;
+  /* Controls scrolling */
+  animation-direction: alternate;
+}
+
+.carousel-wrapper>a {
+  width: 150px;
+  height: auto;
+  margin-right: 5px;
+}
+
+.carousel-wrapper>a:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
+.image-description {
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  background-color: lightsteelblue;
+  color: black
+}
+
+.bullet-item::before {
+  content: "•";
+  margin-right: 8px;
+  color: black;
+  font-size: 20px;
+}
+
+.flex-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.flex-box-members {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  align-items: center;
+  overflow: auto;
+  grid-row: 1;
+  grid-column: 1 / -1;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.grid img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
+.flex-box-members>img {
+  margin: 5px
 }
-.flex-boxes {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 20px;
+
+.listdd {
+  padding: 0;
+  margin: 0;
+  text-decoration: line-through;
 }
 
 .flex-box {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -46,81 +128,12 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.carousel {
-  overflow: hidden;
-  width: 100%; /* Set the desired width */
-}
-
-.carousel-wrapper {
-  display: flex;
-  width: max-content; /* Ensures all images fit side by side */
-  animation: scroll 60s linear infinite; /* Controls scrolling */
-  animation-direction: alternate;
-}
-
-.carousel-wrapper > img {
-  width: 150px;
-  height: auto; 
-  margin-right: 5px;
-}
-
-.carousel-wrapper > img:hover {
-    transform: scale(1.2);
-    transition: transform 0.3s;
-    border: 2px solid green;
-}
-  
-.image-description {
-    margin-top: 1px;
-    padding: 10px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    border: 1px solid #ccc;
-    background-color: lightgray;
-    color: black
- }
-
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* Three columns */
-  grid-template-rows: auto auto; /* Two rows */
-  gap: 10px;
-}
-
-.responsive-image {
-  width: 100%;
-  height: auto; /* Maintain aspect ratio */
-}
-
-.dd {
-  flex: 0 1 auto;
-}
-.item1 {
-  display: flex;
-  grid-column: 1 / 3; /* This item spans from column 1 to column 3 */
-  grid-row: 1; /* Remains in the first row */
-  background-color: lightblue;
-}
-
-.item2 {
-  display: flex;
-  grid-column: 3; /* This item stays in column 3 */
-  grid-row: 1; /* Remains in the first row */
-  background-color: lightgreen;
-}
-
-.item3 {
-  display: flex;
-  grid-column: 1 / 4; /* This item spans all three columns */
-  grid-row: 2; /* Moves to the second row */
-  background-color: lightcoral;
 }
