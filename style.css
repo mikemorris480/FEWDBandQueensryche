@@ -16,7 +16,6 @@ header {
   font-size: 25px;
 }
 
-/* Grid Container */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -27,19 +26,24 @@ header {
   border: 0px solid #ccc;
 }
 
-/* Grid Items */
 .about-content {
+  display: flex;
+  flex-direction: column;
   grid-column: 1 / -1;
-  /* Span all three columns */
   grid-row: 1;
-  /* Span the first three rows */
   background-color: lightsteelblue;
   color: black;
   text-align: center;
   border-radius: 0px 0px 8px 8px;
 }
 
+.justified-content {
+  text-align: justify;
+  margin: 10px;
+}
+
 .main-content {
+  display: flex;
   grid-column: 1 / -1;
   grid-row: 2;
   color: black;
